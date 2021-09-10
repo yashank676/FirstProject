@@ -1,0 +1,147 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #3D9970;
+}
+
+h1{
+    font-size: 70px;
+}
+
+.container{
+    /*background-color: aqua;*/
+    height: 720px;
+    max-width: 1440px;
+    display: flex;
+    align-items: center; /* to center vertically */
+    justify-content: space-between; /* to center horizontally */
+    margin: auto;
+    padding: 30px;
+}
+
+.left-sec{
+    flex-grow: 2;
+}
+.right-sec{
+    flex-grow: 1;
+}
+
+.restart{
+    /*background-color: aqua;*/
+    width: 180px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid #3D9970;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    margin-top: 40px;
+}
+.restart:hover{
+    background-color: #3D9970;
+    color: white;
+}
+
+
+.game{
+    /*background-color: aqua;*/
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    height: 500px;
+    /*margin: 50px;*/
+}
+
+
+.header{
+    display: flex;
+    font-size: 20px;
+    color: #9a9a9a;
+    /* flex-grow: 1; */
+}
+.player-x{
+    display: flex;
+    justify-content: center;
+    /* background-color: brown; */
+    flex-grow: 1;
+    border-bottom: 5px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+.player-x.active{
+    color: #f4b41a;
+    border-color: #f4b41a;
+}
+.player-o{
+    display: flex;
+    justify-content: center;
+    /* background-color: cornflowerblue; */
+    flex-grow: 1;
+    border-bottom: 5px solid #eee;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+.player-o.active{
+    color: #143d59;
+    border-color: #143d59;
+}
+
+.board{
+    /*background-color: black;*/
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(3,1fr);
+    grid-gap: 0px;
+    flex-grow: 1;
+    padding: 10px;
+}
+
+.board-tile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    cursor: pointer;
+}
+
+/* the tile-number which are mutiple of 3 dont have a right border so we use the following code to do border-right on numbers are than multiples of 3 */
+
+.board-tile:not(:nth-child(3n)){
+    border-right: 3px solid rgba(137, 163, 189, 0.6);
+}
+
+/* similarly we need border-bottom only for tile numbers 1 to 6 */
+
+.board-tile:not(:nth-last-child(-n+3)){
+    border-bottom: 3px solid rgba(137, 163, 189, 0.6);
+}
+.board-tile:hover{
+    background: #eee;
+}
+
+.tile-x{
+    color: #f4b41a;
+}
+.tile-o{
+    color: #143d59;
+}
+
+.winner-tile span{
+    color: rgba(5, 253, 5, 0.808);
+}
+
+@media only screen and (max-width: 1100px)
+{
+    .container{
+        flex-direction: column;
+    }
+    .left-sec{
+        margin-bottom: 50px;
+    }
+}
