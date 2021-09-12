@@ -25,6 +25,10 @@ function onTileClick(index)
 
 function startNewGame()
 {
-    game = new Game();
-    gameView.updateBoard(game);
+    if(confirm("Restart"))
+    {
+        game = new Game();
+        gameView.updateBoard(game);
+    }
+
 }

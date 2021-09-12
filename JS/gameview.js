@@ -23,6 +23,11 @@ export default class GameView{
                 tile.classList.add("winner-tile");
             }
         }
+        if(winningCombination!=null)
+        {   
+            alert(game.board[winningCombination[0]] + " is the winner!");
+            return;
+        }
     }
 
     updateTurn(game)

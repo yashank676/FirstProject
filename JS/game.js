@@ -24,7 +24,10 @@ export default class Game{
         return;
 
         if(this.board[index]!=null)
-        return;
+        {
+            alert("Position is already filled!!");
+            return;
+        }
 
         this.board[index] = this.turn;
         this.nextTurn();
